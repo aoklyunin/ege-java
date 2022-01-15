@@ -52,23 +52,24 @@ public class Problem1 {
         SimpleMatrix links = new SimpleMatrix(linksArr);
         SimpleMatrix roads = new SimpleMatrix(roadsArr);
 
+        System.out.println();
 
-        System.out.println(links.eig().getEigenvalues());
-//        for (int i = 0; i < roadsArr.length; i++) {
-//            for (int j = 0; j < roadsArr[i].length; j++) {
-//                System.out.printf("%.2f ", roads.get(i, j));
-//            }
-//            System.out.println();
-//        }
-//        System.out.println("__________________________");
-//
-//        SimpleMatrix res = roads.transpose().mult(roads);
-//        for (int i = 0; i < roadsArr.length; i++) {
-//            for (int j = 0; j < roadsArr[i].length; j++) {
-//                System.out.printf("%.2f ", res.get(i, j));
-//            }
-//            System.out.println();
-//        }
+        SimpleMatrix res = roads.mult(links);
+        for (int i = 0; i < roadsArr.length; i++) {
+            for (int j = 0; j < roadsArr[i].length; j++) {
+                System.out.printf("%.2f ", roads.get(i, j));
+            }
+            System.out.println();
+        }
+        System.out.println("__________________________");
+
+        SimpleMatrix res = roads.transpose().mult(roads);
+        for (int i = 0; i < roadsArr.length; i++) {
+            for (int j = 0; j < roadsArr[i].length; j++) {
+                System.out.printf("%.2f ", res.get(i, j));
+            }
+            System.out.println();
+        }
         System.out.println("links trace: " + Arrays.toString(linksColTrace));
         System.out.println("roads trace: " + Arrays.toString(roadsColTrace));
 
