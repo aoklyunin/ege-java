@@ -2,32 +2,12 @@ public class Problem1_0 {
 
     static int SIZE = 7;
 
-    static int[][] source = new int[][]{
-            {0 , 10, 15, 0 , 0 , 0 , 0 }, // П1
-            {10, 0 , 0 , 13, 17, 0 , 0 }, // П2
-            {15, 0 , 0 , 0 , 19, 0 , 9 }, // П3
-            {0 , 14, 0 , 0 , 10, 20, 11}, // П4
-            {0 , 17, 19, 10, 0 , 0 , 20}, // П5
-            {0 , 0 , 0 , 20, 0 , 0 , 25}, // П6
-            {0 , 0 , 9 , 11, 20, 25, 0 }  // П7
-    };
-
     static char[] names = {'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж'};
-    //       А  Б  В  Г  Д  Е  Ж
-    static int[][] target = new int[][]{
-            {0, 1, 1, 0, 0, 0, 0}, // A
-            {1, 0, 0, 1, 1, 0, 0}, // Б
-            {1, 0, 0, 1, 0, 1, 0}, // В
-            {0, 1, 1, 0, 1, 1, 0}, // Г
-            {0, 1, 0, 1, 0, 1, 1}, // Д
-            {0, 0, 1, 1, 1, 0, 1}, // Е
-            {0, 0, 0, 0, 1, 1, 0}  // Ж
-    };
 
     static int[] sourceSum = new int[SIZE];
     static int[] targetSum = new int[SIZE];
 
-    static void processPermutation(int[] arr) {
+    static void processPermutation(int [][] target, int [][] source, int[] arr) {
         for (int i = 0; i < SIZE; i++) {
             if (sourceSum[i] != targetSum[arr[i]]) {
                 return;
@@ -55,18 +35,18 @@ public class Problem1_0 {
 
     }
 
-    static void permute(int[] arr, int l, int r) {
+    static void permute(int [][] target, int [][] source,int[] arr, int l, int r) {
         //System.out.println("permute "+Arrays.toString(arr)+" "+l+" "+r);
         // Base case
         if (l == r) {
-            processPermutation(arr);
+            processPermutation(target,source,arr);
         } else {
             // Permutations made
             for (int i = l; i <= r; i++) {
                 // Swapping done
                 swap(arr, l, i);
                 // Recursion called
-                permute(arr, l + 1, r);
+                permute(target,source,arr, l + 1, r);
                 //backtrack
                 swap(arr, l, i);
             }
@@ -74,7 +54,29 @@ public class Problem1_0 {
     }
 
     public static void main(String[] args) {
-        permute(new int[]{0, 1, 2, 3, 4, 5, 6}, 0, 6);
+        //       Пz1  П2  П3  П4  П5  П6  П7
+        int [][] source = new int[][]{
+                {0 , 10, 15, 0 , 0 , 0 , 0 }, // П1
+                {10, 0 , 0 , 13, 17, 0 , 0 }, // П2
+                {15, 0 , 0 , 0 , 19, 0 , 9 }, // П3
+                {0 , 14, 0 , 0 , 10, 20, 11}, // П4
+                {0 , 17, 19, 10, 0 , 0 , 20}, // П5
+                {0 , 0 , 0 , 20, 0 , 0 , 25}, // П6
+                {0 , 0 , 9 , 11, 20, 25, 0 }  // П7
+        };
+        //       А  Б  В  Г  Д  Е  Ж
+        int [][] target = new int[][]{
+                {0, 1, 1, 0, 0, 0, 0}, // A
+                {1, 0, 0, 1, 1, 0, 0}, // Б
+                {1, 0, 0, 1, 0, 1, 0}, // В
+                {0, 1, 1, 0, 1, 1, 0}, // Г
+                {0, 1, 0, 1, 0, 1, 1}, // Д
+                {0, 0, 1, 1, 1, 0, 1}, // Е
+                {0, 0, 0, 0, 1, 1, 0}  // Ж
+        };
+
+
+        permute(target, source, new int[]{0, 1, 2, 3, 4, 5, 6}, 0, 6);
     }
 
 
