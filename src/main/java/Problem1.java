@@ -3,7 +3,7 @@ public class Problem1 {
     // кол-во вершин (используется для удобства)
     static int SIZE = 7;
 
-    // названия вер
+    // названия вершин
     static char[] names = {'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж'};
 
     //      П1  П2  П3  П4  П5  П6  П7
@@ -74,14 +74,22 @@ public class Problem1 {
 
     }
 
+    // поменять местами элементы массива arr с индексами l и r
+    public static void swap(int[] arr, int l, int r) {
+        int tmp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = tmp;
+    }
+
+
     // функция-генератор перестановок
     static void permute(int[] p, int pos) {
         // Если мы дошли до последнего элемента
-        if (pos == p.length - 1) {
+        if (pos == SIZE - 1) {
             processPermutation(p);
         } else { // иначе
             // Перебираем все оставшиеся элементы
-            for (int i = pos; i < p.length; i++) {
+            for (int i = pos; i < SIZE; i++) {
                 // меняем местами текущий элемент и перебираемый
                 swap(p, pos, i);
                 // Вызываем Рекурсию для следующего элемента
@@ -99,7 +107,7 @@ public class Problem1 {
             sourceSum[i] = 0;
             targetSum[i] = 0;
             for (int j = 0; j < SIZE; j++) {
-                // в исходном представлении надо не забыть заменить веса единицей
+                // в исходном представлении надо не забыть заменить ненулевые веса единицей
                 sourceSum[i] += Math.signum(source[i][j]);
                 targetSum[i] += target[i][j];
             }
@@ -107,13 +115,5 @@ public class Problem1 {
         // запускаем генерацию перестановок
         permute(new int[]{0, 1, 2, 3, 4, 5, 6}, 0);
     }
-
-    // поменять местами элементы массива arr с индексами l и r
-    public static void swap(int[] arr, int l, int r) {
-        int tmp = arr[l];
-        arr[l] = arr[r];
-        arr[r] = tmp;
-    }
-
 
 }
