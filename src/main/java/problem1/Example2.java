@@ -1,4 +1,6 @@
-public class Problem1 {
+package problem1;
+
+public class Example2 {
 
     // кол-во вершин (используется для удобства)
     static int SIZE = 7;
