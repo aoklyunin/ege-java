@@ -27,7 +27,7 @@ public class Problem1 {
             {0, 0, 0, 0, 1, 1, 0}  // Ж
     };
 
-    // взвешенные степени
+    // степени вершин
     static int[] sourceSum = new int[SIZE];
     static int[] targetSum = new int[SIZE];
 
