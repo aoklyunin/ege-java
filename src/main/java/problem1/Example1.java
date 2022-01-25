@@ -10,13 +10,13 @@ public class Example1 {
 
     //      П1  П2  П3  П4  П5  П6  П7
     static int[][] source = new int[][]{
-            {0, 10, 15,  0,  0,  0,  0}, // П1
-            {10, 0,  0, 13, 17,  0,  0}, // П2
-            {15, 0,  0,  0, 19,  0,  9}, // П3
-            {0, 14,  0,  0, 10, 20, 11}, // П4
-            {0, 17, 19, 10,  0,  0, 20}, // П5
-            {0,  0,  0, 20,  0,  0, 25}, // П6
-            {0,  0,  9, 11, 20, 25,  0}  // П7
+            {0, 10, 15, 0, 0, 0, 0}, // П1
+            {10, 0, 0, 13, 17, 0, 0}, // П2
+            {15, 0, 0, 0, 19, 0, 9}, // П3
+            {0, 14, 0, 0, 10, 20, 11}, // П4
+            {0, 17, 19, 10, 0, 0, 20}, // П5
+            {0, 0, 0, 20, 0, 0, 25}, // П6
+            {0, 0, 9, 11, 20, 25, 0}  // П7
     };
     //       А  Б  В  Г  Д  Е  Ж
     static int[][] target = new int[][]{
@@ -32,6 +32,14 @@ public class Example1 {
     // степени вершин
     static int[] sourceSum = new int[SIZE];
     static int[] targetSum = new int[SIZE];
+
+    static int[] getInversePermutation(int[] arr) {
+        int[] reverse = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            reverse[i] = arr[arr[arr[i]]];
+        }
+        return reverse;
+    }
 
     // обработка перестановки
     static void processPermutation(int[] arr) {

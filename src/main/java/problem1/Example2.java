@@ -50,7 +50,7 @@ public class Example2 {
         toProcess.add(currentPoint);
         // пока множество вершин на обработку не пусто
         while (!toProcess.isEmpty()) {
-           // System.out.println("current: " + currentPoint + " " + names[currentPoint]);
+            // System.out.println("current: " + currentPoint + " " + names[currentPoint]);
             // System.out.println(Arrays.toString(distances));
             //System.out.println(Arrays.toString(m[currentPoint]));
             // удаляем индекс текущей вершины из множества на обработку
@@ -85,6 +85,18 @@ public class Example2 {
         return distances[end];
     }
 
+    // получить обратную перестановку
+    static int[] getInversePermutation(int[] arr) {
+        int[] reverse = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                
+            }
+            reverse[i] = arr[arr[i]];
+        }
+        return reverse;
+    }
+
     // обработка перестановки
     static void processPermutation(int[] arr) {
         // проверяем, что в представлениях совпадают степени вершин
@@ -112,13 +124,26 @@ public class Example2 {
         int minAGDistance = findMinDistance(0, 6, arr);
         // если расстояние ГД меньше ГЕ, то комбинация нам подходит
         if (minAGDistance <= 15) {
+            // получаем обратную перестановку
+            int[] reverse = getInversePermutation(arr);
             // выводим названия вершин
             for (int i = 0; i < SIZE; i++) {
-                System.out.print(names[arr[i]] + " ");
+                for (int j = 0; j < SIZE; j++) {
+                    if (arr[j]==i) {
+                        System.out.print(names[j] + " ");
+                        break;
+                    }
+                }
             }
             System.out.println();
-            // выводим расстояния
-            System.out.println(minAGDistance);
+            // выводим названия вершин
+//            for (int i = 0; i < SIZE; i++) {
+//                System.out.print(names[arr[i]] + " ");
+//            }
+//            System.out.println();
+//            // выводим расстояния
+//            System.out.println(minAGDistance);
+//            System.out.println(findMinDistance(4, 2, arr));
         }
 
     }
