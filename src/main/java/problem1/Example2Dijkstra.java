@@ -47,6 +47,10 @@ public class Example2Dijkstra {
                     if (distances[i] == -1)
                         // добавляем её в множество на обработку
                         toProcess.add(i);
+                    // если текущего элемента нет в множестве на рассмотрение, переходим к
+                    // следующему
+                    if (!toProcess.contains(i))
+                        continue;
                     // если мы не обрабатывали вершину или новое расстояние через рассматриваемую вершину выше
                     if (distances[i] == -1 || distances[i] > distances[currentPoint] + m[currentPoint][i])
                         // рассчитываем новое расстояние, как сумму длины пути до текущей вершины

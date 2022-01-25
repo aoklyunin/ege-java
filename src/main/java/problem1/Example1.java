@@ -33,13 +33,15 @@ public class Example1 {
     static int[] sourceSum = new int[SIZE];
     static int[] targetSum = new int[SIZE];
 
-    static int[] getInversePermutation(int[] arr) {
+    // получить обратную перестановку
+    static int[] getReversePermutation(int[] arr) {
         int[] reverse = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            reverse[i] = arr[arr[arr[i]]];
+        for (int i = 0; i < SIZE; i++) {
+            reverse[arr[i]] = i;
         }
         return reverse;
     }
+
 
     // обработка перестановки
     static void processPermutation(int[] arr) {
@@ -73,9 +75,11 @@ public class Example1 {
         int abDistance = source[arr[0]][arr[1]];
         // если расстояние ГД меньше ГЕ, то комбинация нам подходит
         if (gdDistance < geDistance) {
+            // получаем обратную перестановку
+            int [] reverse = getReversePermutation(arr);
             // выводим названия вершин
             for (int i = 0; i < SIZE; i++) {
-                System.out.print(names[arr[i]] + " ");
+                System.out.print(names[reverse[i]] + " ");
             }
             System.out.println();
             // выводим расстояния

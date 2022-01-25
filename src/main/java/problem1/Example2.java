@@ -1,6 +1,8 @@
 package problem1;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.TreeSet;
 
 public class Example2 {
@@ -40,32 +42,22 @@ public class Example2 {
         // расстояния от начальной вершины до рассматриваемой
         final int[] distances = new int[]{-1, -1, -1, -1, -1, -1, -1, -1};
         // упорядоченное множество, в котором будут лежать индексы вершин графа, которые
-        // нам надо обработать
-        TreeSet<Integer> toProcess = new TreeSet<>();
         // начинаем с точки Б, поэтому индекс 1
         int currentPoint = start;
         // расстояние от точки до самой себя равно нулю
         distances[currentPoint] = 0;
-        // Добавляем в множество вершин на обработку индекс текущей вершины
-        toProcess.add(currentPoint);
+        int nextPoint;
+        boolean[] complete = new boolean[SIZE];
         // пока множество вершин на обработку не пусто
-        while (!toProcess.isEmpty()) {
-            // System.out.println("current: " + currentPoint + " " + names[currentPoint]);
-            // System.out.println(Arrays.toString(distances));
-            //System.out.println(Arrays.toString(m[currentPoint]));
-            // удаляем индекс текущей вершины из множества на обработку
-            toProcess.remove(currentPoint);
+        do {
+         //   System.out.println("current: " + currentPoint + " " + names[currentPoint]);
+         //   System.out.println(Arrays.toString(distances));
             // перебираем все вершины
             for (int i = 0; i < SIZE; i++) {
+                if (i == currentPoint || complete[i])
+                    continue;
                 // если у текущей есть с ней ребро
                 if (source[arr[currentPoint]][arr[i]] > 0) {
-                    // System.out.println(names[arr[i]] + " " + distances[arr[i]] + " " + (distances[arr[currentPoint]] + source[arr[currentPoint]][arr[i]]));
-                    // если расстояние при этом равно -1, т.е. мы ещё не обрабатывали эту вершину
-                    if (distances[i] == -1)
-                        // добавляем её в множество на обработку
-                        toProcess.add(i);
-                    if (!toProcess.contains(i))
-                        continue;
                     // если мы не обрабатывали вершину или новое расстояние через рассматриваемую вершину выше
                     if (distances[i] == -1 || distances[i] > distances[currentPoint] + source[arr[currentPoint]][arr[i]]) {
                         // рассчитываем новое расстояние, как сумму длины пути до текущей вершины
@@ -74,19 +66,25 @@ public class Example2 {
                     }
                 }
             }
-            // если множество на обработку пустое
-            if (toProcess.isEmpty())
-                // заканчиваем цикл
-                break;
+            complete[currentPoint] = true;
 
-            currentPoint = toProcess.first();
-        }
+            nextPoint = -1;
+            for (int i = 0; i < SIZE; i++) {
+                if (!complete[i])
+                    if(nextPoint==-1|| (distances[i]>0&&distances[i]<distances[nextPoint]))
+                        nextPoint = i;
+
+            }
+            currentPoint = nextPoint;
+
+        //    System.out.println("set cp: " + currentPoint);
+        } while (nextPoint != -1);
 
         return distances[end];
     }
 
     // получить обратную перестановку
-    static int[] getInversePermutation(int[] arr) {
+    static int[] getReversePermutation(int[] arr) {
         int[] reverse = new int[arr.length];
         for (int i = 0; i < SIZE; i++) {
             reverse[arr[i]] = i;
@@ -122,7 +120,7 @@ public class Example2 {
         // если расстояние ГД меньше ГЕ, то комбинация нам подходит
         if (minAGDistance <= 15) {
             // получаем обратную перестановку
-            int[] reverse = getInversePermutation(arr);
+            int[] reverse = getReversePermutation(arr);
             // выводим названия вершин
             for (int i = 0; i < SIZE; i++) {
                 System.out.print(names[reverse[i]] + " ");
@@ -135,7 +133,14 @@ public class Example2 {
 //            System.out.println();
 //            // выводим расстояния
 //            System.out.println(minAGDistance);
-//            System.out.println(findMinDistance(4, 2, arr));
+            System.out.println("____________________________________________________");
+            System.out.println(findMinDistance(4, 2, arr));
+            System.out.println("____________________________________________________");
+
+            // расстояние между Г и Е
+            int deDistance = source[arr[4]][arr[5]];
+            int beDistance = source[arr[1]][arr[5]];
+            System.out.println(deDistance + " " + beDistance);
         }
 
     }
