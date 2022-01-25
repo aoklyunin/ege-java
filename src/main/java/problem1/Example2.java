@@ -88,11 +88,8 @@ public class Example2 {
     // получить обратную перестановку
     static int[] getInversePermutation(int[] arr) {
         int[] reverse = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                
-            }
-            reverse[i] = arr[arr[i]];
+        for (int i = 0; i < SIZE; i++) {
+            reverse[arr[i]] = i;
         }
         return reverse;
     }
@@ -128,12 +125,7 @@ public class Example2 {
             int[] reverse = getInversePermutation(arr);
             // выводим названия вершин
             for (int i = 0; i < SIZE; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    if (arr[j]==i) {
-                        System.out.print(names[j] + " ");
-                        break;
-                    }
-                }
+                System.out.print(names[reverse[i]] + " ");
             }
             System.out.println();
             // выводим названия вершин
