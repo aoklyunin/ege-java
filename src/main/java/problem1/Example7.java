@@ -18,61 +18,85 @@ public class Example7 {
             {29, 0, 0, 0, 0, 0, 0}, // Z
     };
 
+    // кол-во путей
     static int pathCnt = 0;
 
+    // сгенерировать пути
     static void generatePaths(int currentPoint, int target, int[] inPathPositions, int stepCnt) {
+        // если мы дошли до целевой вершины
         if (currentPoint == target) {
+            // шагов всегда меньше на 1, чем вершин в пути, поэтому сравниваем
+            // пятью вместо шести
             if (stepCnt >= 5) {
-                pathCnt++;
+                // инициализируем массив порядковых номеров вершин
                 int[] pointOrder = new int[SIZE];
                 for (int i = 0; i < SIZE; i++) {
                     pointOrder[i] = -1;
                 }
+                // перебираем вершины
                 for (int i = 0; i < SIZE; i++) {
+                    // если порядковый номер вершины в пути задан
                     if (inPathPositions[i] != -1)
+                        // порядковый номер вершины
                         pointOrder[inPathPositions[i]] = i;
                 }
+                // находим, сколько вершин мы использовали при построении пути
                 int realSize = SIZE;
                 for (int i = SIZE - 1; i > 0; i--) {
                     if (pointOrder[i] != -1) {
-                        realSize = i;
+                        realSize = i+1;
                         break;
                     }
                 }
 
+                // находим длину пути
                 int pathLength = 0;
-                for (int i = 0; i < realSize - 1; i++) {
+                for (int i = 0; i < realSize-1; i++) {
                     pathLength += m[pointOrder[i]][pointOrder[i + 1]];
                 }
                 System.out.print(pathLength + ": ");
-                // выводим вершины, которые н
+                // выводим вершины, которые участвую в пути в порядке следования
                 for (int i = 0; i < realSize; i++) {
                     System.out.print(names[pointOrder[i]]);
                 }
                 System.out.println();
+                // увеличиваем кол-во путей на 1
+                pathCnt++;
             }
-            return;
-        }
-
-        for (int i = 0; i < SIZE; i++) {
-            if (inPathPositions[i] == -1 && m[currentPoint][i] > 0) {
-                int[] copyInPathPositions = Arrays.copyOf(inPathPositions, SIZE);
-                copyInPathPositions[i] = stepCnt + 1;
-                generatePaths(i, target, copyInPathPositions, stepCnt + 1);
+        } else { // иначе
+            // перебираем все вершины
+            for (int i = 0; i < SIZE; i++) {
+                // если порядковый номер вершины в пути ещё не задан
+                // и между обрабатываемой вершиной и перебираемой есть ребро
+                if (inPathPositions[i] == -1 && m[currentPoint][i] > 0) {
+                    // получаем копию порядковых номеров массива
+                    int[] copyInPathPositions = Arrays.copyOf(inPathPositions, SIZE);
+                    // задаём порядковый номер для перебираемой вершины
+                    copyInPathPositions[i] = stepCnt + 1;
+                    // генерируем путь через эту вершину
+                    generatePaths(i, target, copyInPathPositions, stepCnt + 1);
+                }
             }
         }
     }
 
+    // главный метод программы
     public static void main(String[] args) {
+        // положение вершин в пути
         int[] inPathPositions = new int[SIZE];
-        pathCnt = 0;
+        // все вершины изначально не участвуют в пути
         for (int i = 0; i < SIZE; i++) {
             inPathPositions[i] = -1;
         }
+        // начальная точка A
         int start = 0;
+        // конечная точка Z
         int target = 6;
+        // текущая точка имеет нулевой порядковый индекс
         inPathPositions[start] = 0;
+        // ищем все пути между двумя точками
         generatePaths(start, target, inPathPositions, 0);
+        // выводим ответ
         System.out.println("path cnt: " + pathCnt);
     }
 }

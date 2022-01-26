@@ -1,10 +1,5 @@
 package problem1;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.TreeSet;
-
 public class Example2 {
 
     // кол-во вершин (используется для удобства)
@@ -83,8 +78,6 @@ public class Example2 {
             }
             // переходим к следующей точке
             currentPoint = nextPoint;
-
-            //    System.out.println("set cp: " + currentPoint);
         }
 
         return distances[end];
