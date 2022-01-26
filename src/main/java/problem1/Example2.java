@@ -35,6 +35,7 @@ public class Example2 {
     static int[] sourceSum = new int[SIZE];
     static int[] targetSum = new int[SIZE];
 
+    // поиск кратчайшего пути
     static int findMinDistance(int start, int end, int[] arr) {
         // заполняем расстояния от начальной вершины до рассматриваемой значениями -1
         int[] distances = new int[SIZE];

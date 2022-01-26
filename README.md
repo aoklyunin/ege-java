@@ -4,6 +4,9 @@
 
 Задания взяты с [сайта Константина Полякова](https://kpolyakov.spb.ru/school/ege.htm).
 
+[С++ Исходники решений](https://github.com/aoklyunin/ege_cpp)
+
+[Python Исходники решений](https://github.com/aoklyunin/ege_py)
 
 ## Задание 1
 
@@ -21,6 +24,8 @@
 
 Ответ: 10
 
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example1.java)
+
 ### Пример 2
 
 Р-09. На рисунке справа схема дорог Н-ского района изображена в виде графа, в таблице
@@ -33,6 +38,8 @@
 ![Задание 2](problems/problem1/task2.png)
 
 Ответ: 19
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example2.java)
 
 ### Пример 3
 
@@ -49,6 +56,8 @@
 
 Ответ: 9
 
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example3.java)
+
 ### Пример 4
 
 На рисунке справа схема дорог Н-ского района изображена в виде графа, в таблице содержатся 
@@ -60,6 +69,8 @@
 ![Задание 4](problems/problem1/task4.png)
 
 Ответ: 20
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example4.java)
 
 ### Пример 5
 
@@ -73,6 +84,8 @@
 
 Ответ: 46
 
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example5.java)
+
 ### Пример 6
 
 Между населёнными пунктами A, B, C, D, E, F построены дороги, протяжённость которых приведена
@@ -84,6 +97,8 @@
 ![Задание 6](problems/problem1/task6.png)
 
 Ответ: 17
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example6.java)
 
 ### Пример 7
 
@@ -100,6 +115,8 @@ B в A дороги нет.
 
 Ответ: 6
 
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example7.java)
+
 ### Пример 8
 
 Р-04. Между населёнными пунктами A, B, C, D, E, F, G построены дороги, протяжённость 
@@ -113,6 +130,8 @@ B в A дороги нет.
 ![Задание 8](problems/problem1/task8.png)
 
 Ответ: 23
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example8.java)
 
 ### Пример 9
 
@@ -128,6 +147,8 @@ B в A дороги нет.
 ![Задание 9](problems/problem1/task9.png)
 
 Ответ: 9
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem1/Example9.java)
 
 [Задания для самостоятельного выполнения](problems/problem1/exercises.pdf)
 
