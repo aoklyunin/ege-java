@@ -22,9 +22,7 @@ public class Example2Dijkstra {
         char[] names = {'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З'};
         // заполняем расстояния от начальной вершины до рассматриваемой значениями -1
         int[] distances = new int[SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            distances[i] = -1;
-        }
+        Arrays.fill(distances,-1);
         // начинаем с точки Б, поэтому индекс 1
         int currentPoint = 1;
         // расстояние от точки до самой себя равно нулю

@@ -1,5 +1,7 @@
 package problem1;
 
+import java.util.Arrays;
+
 public class Example2 {
 
     // кол-во вершин (используется для удобства)
@@ -36,9 +38,7 @@ public class Example2 {
     static int findMinDistance(int start, int end, int[] arr) {
         // заполняем расстояния от начальной вершины до рассматриваемой значениями -1
         int[] distances = new int[SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            distances[i] = -1;
-        }
+        Arrays.fill(distances,-1);
         // упорядоченное множество, в котором будут лежать индексы вершин графа, которые
         // начинаем с точки Б, поэтому индекс 1
         int currentPoint = start;
@@ -116,6 +116,7 @@ public class Example2 {
         }
         // здесь мы уже выполняем проверку, определённую заданием
 
+        // находим
         int minAGDistance = findMinDistance(0, 6, arr);
         // если расстояние ГД меньше ГЕ, то комбинация нам подходит
         if (minAGDistance <= 15) {

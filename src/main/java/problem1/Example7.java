@@ -30,9 +30,7 @@ public class Example7 {
             if (stepCnt >= 5) {
                 // инициализируем массив порядковых номеров вершин
                 int[] pointOrder = new int[SIZE];
-                for (int i = 0; i < SIZE; i++) {
-                    pointOrder[i] = -1;
-                }
+                Arrays.fill(pointOrder, -1);
                 // перебираем вершины
                 for (int i = 0; i < SIZE; i++) {
                     // если порядковый номер вершины в пути задан
@@ -44,14 +42,14 @@ public class Example7 {
                 int realSize = SIZE;
                 for (int i = SIZE - 1; i > 0; i--) {
                     if (pointOrder[i] != -1) {
-                        realSize = i+1;
+                        realSize = i + 1;
                         break;
                     }
                 }
 
                 // находим длину пути
                 int pathLength = 0;
-                for (int i = 0; i < realSize-1; i++) {
+                for (int i = 0; i < realSize - 1; i++) {
                     pathLength += m[pointOrder[i]][pointOrder[i + 1]];
                 }
                 System.out.print(pathLength + ": ");
@@ -85,9 +83,7 @@ public class Example7 {
         // положение вершин в пути
         int[] inPathPositions = new int[SIZE];
         // все вершины изначально не участвуют в пути
-        for (int i = 0; i < SIZE; i++) {
-            inPathPositions[i] = -1;
-        }
+        Arrays.fill(inPathPositions, -1);
         // начальная точка A
         int start = 0;
         // конечная точка Z

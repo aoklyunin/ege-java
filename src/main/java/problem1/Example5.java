@@ -73,8 +73,8 @@ public class Example5 {
             System.out.print(names[reverse[i]] + " ");
         }
         System.out.println();
-        int veDistance = source[arr[0]][arr[4]];
-        System.out.println(veDistance);
+        int adDistance = source[arr[0]][arr[4]];
+        System.out.println(adDistance);
 
     }
 

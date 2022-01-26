@@ -3,8 +3,6 @@ package problem1;
 import java.util.Arrays;
 
 public class Example6 {
-    // названия вершин
-    static char[] names = {'A', 'B', 'C', 'D', 'E', 'F'};
     // кол-во вершин графа
     static int SIZE = 6;
     //       A  B  C  D  E  F
@@ -20,9 +18,7 @@ public class Example6 {
     static int findMinDistance(int start, int end, int skipPoint) {
         // заполняем расстояния от начальной вершины до рассматриваемой значениями -1
         int[] distances = new int[SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            distances[i] = -1;
-        }
+        Arrays.fill(distances,-1);
         // начинаем с точки Б, поэтому индекс 1
         int currentPoint = start;
         // расстояние от точки до самой себя равно нулю
