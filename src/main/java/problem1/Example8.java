@@ -1,40 +1,37 @@
 package problem1;
 
-import java.util.*;
+public class Example8 {
+    // названия вершин
+    static char[] names = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+    // кол-во вершин графа
+    static int SIZE = 7;
+    //       A  B  C  D  E  F G
+    static int[][] m = new int[][]{
+            {0, 5, 0, 12, 0, 0, 25}, // A
+            {5, 0, 0, 8, 0, 0, 0}, // B
+            {0, 0, 0, 2, 4, 5, 10}, // C
+            {12, 8, 2, 0, 0, 0, 0}, // D
+            {0, 0, 4, 0, 0, 0, 5}, // E
+            {0, 0, 5, 0, 0, 0, 5}, // F
+            {25, 0, 10, 0, 5, 5, 0}, // G
+    };
 
-public class Example2Dijkstra {
-
-    public static void main(String[] args) {
-        // кол-во вершин графа
-        int SIZE = 8;
-        //       А  Б  В  Г  Д  Е  Ж  З
-        int[][] m = new int[][]{
-                {0, 5, 0, 2, 4, 0, 0, 0}, // А
-                {0, 0, 0, 5, 0, 0, 7, 2}, // Б
-                {0, 0, 0, 0, 0, 0, 0, 8}, // В
-                {0, 0, 0, 0, 0, 0, 1, 0}, // Г
-                {0, 0, 3, 0, 0, 0, 0, 0}, // Д
-                {0, 0, 0, 0, 0, 0, 2, 0}, // Е
-                {0, 0, 0, 0, 0, 0, 0, 0}, // Ж
-                {0, 0, 0, 0, 0, 4, 0, 0}, // З
-        };
-        // названия вершин
-        char[] names = {'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З'};
+    static int findMinDistance(int start, int end) {
         // заполняем расстояния от начальной вершины до рассматриваемой значениями -1
         int[] distances = new int[SIZE];
         for (int i = 0; i < SIZE; i++) {
             distances[i] = -1;
         }
         // начинаем с точки Б, поэтому индекс 1
-        int currentPoint = 1;
+        int currentPoint = start;
         // расстояние от точки до самой себя равно нулю
         distances[currentPoint] = 0;
         // массив флагов, закончена ли проверка для заданной точки
         boolean[] complete = new boolean[SIZE];
         // пока есть следующая точка
         while (currentPoint != -1) {
-            System.out.println("current: " + currentPoint + " " + names[currentPoint]);
-            System.out.println(Arrays.toString(distances));
+           // System.out.println("current: " + currentPoint + " " + names[currentPoint]);
+         //   System.out.println(Arrays.toString(distances));
             // перебираем все вершины
             for (int i = 0; i < SIZE; i++) {
                 if (i == currentPoint || complete[i])
@@ -67,9 +64,10 @@ public class Example2Dijkstra {
 
             //    System.out.println("set cp: " + currentPoint);
         }
+        return distances[end];
+    }
 
-        System.out.println(Arrays.toString(distances));
-        // Выводим расстояние от Б до Ж
-        System.out.println(distances[6]);
+    public static void main(String[] args) {
+        System.out.println(findMinDistance(0, 6));
     }
 }

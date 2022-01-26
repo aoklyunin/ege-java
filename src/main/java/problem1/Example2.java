@@ -39,19 +39,22 @@ public class Example2 {
     static int[] targetSum = new int[SIZE];
 
     static int findMinDistance(int start, int end, int[] arr) {
-        // расстояния от начальной вершины до рассматриваемой
-        final int[] distances = new int[]{-1, -1, -1, -1, -1, -1, -1, -1};
+        // заполняем расстояния от начальной вершины до рассматриваемой значениями -1
+        int[] distances = new int[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            distances[i] = -1;
+        }
         // упорядоченное множество, в котором будут лежать индексы вершин графа, которые
         // начинаем с точки Б, поэтому индекс 1
         int currentPoint = start;
         // расстояние от точки до самой себя равно нулю
         distances[currentPoint] = 0;
-        int nextPoint;
+        // массив флагов, закончена ли проверка для заданной точки
         boolean[] complete = new boolean[SIZE];
-        // пока множество вершин на обработку не пусто
-        do {
-         //   System.out.println("current: " + currentPoint + " " + names[currentPoint]);
-         //   System.out.println(Arrays.toString(distances));
+        // пока есть следующая точка
+        while (currentPoint != -1) {
+            //   System.out.println("current: " + currentPoint + " " + names[currentPoint]);
+            //   System.out.println(Arrays.toString(distances));
             // перебираем все вершины
             for (int i = 0; i < SIZE; i++) {
                 if (i == currentPoint || complete[i])
@@ -67,18 +70,22 @@ public class Example2 {
                 }
             }
             complete[currentPoint] = true;
-
-            nextPoint = -1;
+            // ищем следующую точку
+            int nextPoint = -1;
             for (int i = 0; i < SIZE; i++) {
+                // если обработка точки не завершена
                 if (!complete[i])
-                    if(nextPoint==-1|| (distances[i]>0&&distances[i]<distances[nextPoint]))
+                    // если мы уже доходили до точки и следующая точка ещё не задана или
+                    // новое расстояние меньше
+                    if (distances[i] > 0 && (nextPoint == -1 || distances[i] < distances[nextPoint]))
                         nextPoint = i;
 
             }
+            // переходим к следующей точке
             currentPoint = nextPoint;
 
-        //    System.out.println("set cp: " + currentPoint);
-        } while (nextPoint != -1);
+            //    System.out.println("set cp: " + currentPoint);
+        }
 
         return distances[end];
     }
@@ -126,21 +133,7 @@ public class Example2 {
                 System.out.print(names[reverse[i]] + " ");
             }
             System.out.println();
-            // выводим названия вершин
-//            for (int i = 0; i < SIZE; i++) {
-//                System.out.print(names[arr[i]] + " ");
-//            }
-//            System.out.println();
-//            // выводим расстояния
-//            System.out.println(minAGDistance);
-            System.out.println("____________________________________________________");
             System.out.println(findMinDistance(4, 2, arr));
-            System.out.println("____________________________________________________");
-
-            // расстояние между Г и Е
-            int deDistance = source[arr[4]][arr[5]];
-            int beDistance = source[arr[1]][arr[5]];
-            System.out.println(deDistance + " " + beDistance);
         }
 
     }
