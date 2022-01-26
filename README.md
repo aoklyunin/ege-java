@@ -4,9 +4,9 @@
 
 Задания взяты с [сайта Константина Полякова](https://kpolyakov.spb.ru/school/ege.htm).
 
-[С++ Исходники решений](https://github.com/aoklyunin/ege_cpp)
+[С++ Исходники решений](https://github.com/aoklyunin/ege-cpp)
 
-[Python Исходники решений](https://github.com/aoklyunin/ege_py)
+[Python Исходники решений](https://github.com/aoklyunin/ege-py)
 
 ## Задание 1
 
