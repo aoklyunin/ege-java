@@ -67,20 +67,23 @@ public class Example1 {
     static void processPermutation(int[] p, int[] c) {
         int[] reverse = getReversePermutation(p);
         for (int i = 0; i < c.length; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (values[i][j] == -1)
-                    continue;
-                if (combinations[c[i]][j] ^ (values[i][reverse[j]] == 1))
-                    return;
-            }
             boolean xValue = combinations[c[i]][p[0]];
             boolean yValue = combinations[c[i]][p[1]];
             boolean zValue = combinations[c[i]][p[2]];
             boolean wValue = combinations[c[i]][p[3]];
             if (f(xValue, yValue, zValue, wValue) ^ (values[i][SIZE] == 1))
                 return;
+
+            System.out.println("====================================");
+            System.out.println(Arrays.toString(p) + "\n" + Arrays.toString(c));
+            System.out.println((f(xValue, yValue, zValue, wValue)));
+            for (int j = 0; j < SIZE; j++) {
+                if (values[i][j] == -1)
+                    continue;
+                if (combinations[c[i]][j] ^ (values[i][reverse[j]] == 1))
+                    return;
+            }
         }
-        System.out.println("====================================");
         showTable(p, c);
         cnt++;
         //System.out.println(Arrays.toString(p) + "\n" + Arrays.toString(c));
