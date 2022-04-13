@@ -20,6 +20,7 @@ public class Example4 {
 
     // проверка значений в линии на совпадение
     static int findLine(boolean xV, boolean yV, boolean zV, boolean wV, boolean f, boolean[][] combinations) {
+        // сначала проверяем вторую строку, т.к. она - частный случай первой
         if (xV && wV && !f && combinations[0] == null) {
             return 0;
         }
