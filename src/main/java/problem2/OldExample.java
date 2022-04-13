@@ -3,7 +3,7 @@ package problem2;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class Example2 {
+public class OldExample {
 
     // кол-во переменных (используется для удобства)
     static int SIZE = 4;
