@@ -1,9 +1,8 @@
 package problem2;
 
 import java.util.Arrays;
-import java.util.HashSet;
 
-public class Example1 {
+public class Example2 {
 
     // кол-во переменных (используется для удобства)
     static int SIZE = 4;
@@ -11,21 +10,19 @@ public class Example1 {
     static char[] names = {'x', 'y', 'z', 'w'};
 
     static boolean f(boolean x, boolean y, boolean z, boolean w) {
-        return (x || y) && (y != z) && !w;
+        return ((x && !y) || impl(w,z))==(z==x);
     }
 
     static boolean impl(boolean a, boolean b) {
         return !a || b;
     }
 
-    static void processPermutation(int[] p) {
+    static void processPermutation(int []  p) {
         boolean[] bVals = new boolean[]{false, true};
 
         boolean[] found = new boolean[]{false, false, false};
 
         boolean[][] combinations = new boolean[3][];
-
-        int [] rp = getReversePermutation(p);
 
         int foundCnt = 0;
         for (boolean xV0 : bVals)
@@ -42,25 +39,22 @@ public class Example1 {
                         boolean wV = values[p[3]];
 
                         // System.out.println(xV0 + " " + yV0 + " " + zV0 + " " + wV0);
-                        if (f(xV0, yV0, zV0, wV0) && xV && zV && !found[0]) {
+                        if (f(xV0, yV0, zV0, wV0) && !yV && !zV && wV&& !found[0]) {
                             found[0] = true;
                             combinations[0] = values;
                             foundCnt++;
                         }
-                        if (f(xV0, yV0, zV0, wV0) && !xV && yV && !wV && !found[1]) {
+                        if (f(xV0, yV0, zV0, wV0) && !xV && yV && !zV&& !wV && !found[1]) {
                             found[1] = true;
                             combinations[1] = values;
                             foundCnt++;
                         }
-                        if (f(xV0, yV0, zV0, wV0) && yV && zV && !wV && !found[2]) {
+                        if (f(xV0, yV0, zV0, wV0) && !xV && wV && !found[2]) {
                             found[2] = true;
                             combinations[2] = values;
                             foundCnt++;
                         }
-
                     }
-        //System.out.println(foundCnt + ": " + Arrays.toString(p) + " | " + Arrays.toString(found));
-
 
         if (foundCnt == 3) {
             System.out.println("++++++++++++++++++++++++++++++");
