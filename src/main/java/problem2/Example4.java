@@ -34,7 +34,7 @@ public class Example4 {
 
     // обработка перестановки
     static void processPermutation(int[] p) {
-        // найденные комбинации, их три, потому что известных строчек таблицы истинности 3
+        // найденные комбинации, их может быть максимум 16, потому что перменных 4, а 2^4=16
         boolean[][] combinations = new boolean[16][];
         // кол-во найденных комбинаций
         int foundCombinationCnt = 0;
