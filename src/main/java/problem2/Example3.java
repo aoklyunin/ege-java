@@ -10,7 +10,7 @@ public class Example3 {
 
     // логическая функция, аргументы которой мы подбираем
     static boolean f(boolean x, boolean y, boolean z, boolean w) {
-        return ((x && y) || (y && z)) == (impl(x, w) && impl(w, z));
+        return ((x && !y) || impl(w, z)) == (z == x);
     }
 
     // операция импликации(следования)
@@ -20,13 +20,13 @@ public class Example3 {
 
     // проверка значений в линии на совпадение
     static int findLine(boolean xV, boolean yV, boolean zV, boolean wV, boolean f, boolean[][] combinations) {
-        if (!xV && yV && zV && wV && f && combinations[0] == null) {
+        if (!yV && !zV && wV && f && combinations[0] == null) {
             return 0;
         }
-        if (!xV && yV && !zV && f && combinations[1] == null) {
+        if (!xV && yV && !zV && !wV && f && combinations[1] == null) {
             return 1;
         }
-        if (!xV && yV && !zV && f && combinations[2] == null) {
+        if (!xV && wV && f && combinations[2] == null) {
             return 2;
         }
         return -1;

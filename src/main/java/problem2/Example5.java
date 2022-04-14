@@ -2,27 +2,32 @@ package problem2;
 
 import java.util.Arrays;
 
-public class Example2 {
-    // имена колонок
-    static char[] names = {'x', 'y', 'z', 'w'};
+public class Example5 {
     // список перебираемых значений переменной boolean
     static boolean[] booleanValues = new boolean[]{false, true};
+    // имена колонок
+    static char[] names = {'x', 'y', 'z', 'w'};
 
     // логическая функция, аргументы которой мы подбираем
     static boolean f(boolean x, boolean y, boolean z, boolean w) {
-        return (x || y) && (y != z) && !w;
+        return (((w || y) == x)) || (impl(w, z) && impl(y, w));
+    }
+
+    // операция импликации(следования)
+    static boolean impl(boolean a, boolean b) {
+        return !a || b;
     }
 
     // проверка значений в линии на совпадение
     static int findLine(boolean xV, boolean yV, boolean zV, boolean wV, boolean f, boolean[][] combinations) {
-        if (xV && zV && f && combinations[0] == null) {
+        // сначала проверяем вторую строку, т.к. она - частный случай первой
+        if (xV && wV && !f && combinations[0] == null) {
             return 0;
         }
-        // обязательно надо сначала проверить эту строку, потому что она
-        if (!xV && yV && !wV && f && combinations[1] == null) {
+        if (wV && !f && combinations[1] == null) {
             return 1;
         }
-        if (yV && zV && !wV && f && combinations[2] == null) {
+        if (xV && zV && !f && combinations[2] == null) {
             return 2;
         }
         return -1;
@@ -61,16 +66,15 @@ public class Example2 {
                             foundCombinationCnt++;
                         }
                     }
-        // если найдено три комбинации
+
         if (foundCombinationCnt == 3) {
             System.out.println("++++++++++++++++++++++++++++++");
             System.out.println("перестановка: " + Arrays.toString(p));
-            // выводим шапку
             for (int i = 0; i < 4; i++) {
                 System.out.print(names[p[i]] + " ");
             }
             System.out.println();
-            // выводим сохранённые комбинации
+
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 4; j++) {
                     System.out.print((combinations[i][p[j]] ? 1 : 0) + " ");
@@ -78,8 +82,8 @@ public class Example2 {
                 System.out.println();
             }
         }
-    }
 
+    }
 
     // функция-генератор перестановок
     static void permute(int[] p, int pos) {
