@@ -256,6 +256,9 @@ F соответствует каждая из переменных x, y, z, w.
 
 **Ответ:** z y x w
 
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem2/Example2.java)
+
+
 ### Пример 3
 
 
@@ -304,6 +307,9 @@ F соответствует каждая из переменных x, y, z, w.
 Буквы в ответе пишите подряд, никаких разделителей между буквами ставить не нужно.
 
 **Ответ:** z y w x
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem2/Example3.java)
+
 
 ### Пример 4
 
@@ -355,6 +361,9 @@ F соответствует каждая из переменных x, y, z, w.
 
 **Ответ:** x w z y
 
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem2/Example4.java)
+
+
 ### Пример 5
 
 
@@ -403,5 +412,7 @@ F соответствует каждая из переменных x, y, z, w.
 Буквы в ответе пишите подряд, никаких разделителей между буквами ставить не нужно.
 
 **Ответ:** y x z w
+
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem2/Example5.java)
 
 [Задания для самостоятельного выполнения](problems/problem2/exercises.pdf)
