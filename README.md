@@ -441,7 +441,7 @@ F соответствует каждая из переменных x, y, z, w.
 
 **Ответ: 256, 512, 1024, 2048, 4096**
 
-[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem3/Example4.java)
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem5/Example4.java)
 
 ### Пример 2
 
@@ -465,7 +465,7 @@ F соответствует каждая из переменных x, y, z, w.
 
 **Ответ: 2**
 
-[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem3/Example5.java)
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem5/Example5.java)
 
 
 ### Пример 3
@@ -485,7 +485,7 @@ F соответствует каждая из переменных x, y, z, w.
 
 **Ответ: максимальное число равно 9232, минимальное - 1056*
 
-[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem3/Example6.java)
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem5/Example6.java)
 
 
 ### Пример 4
@@ -509,5 +509,7 @@ F соответствует каждая из переменных x, y, z, w.
 
 4) 7A
 
-[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem3/Example7.java)
+[Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem5/Example7.java)
 
+
+[Задания для самостоятельного выполнения](problems/problem5/exercises.pdf)
