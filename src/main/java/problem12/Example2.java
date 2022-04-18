@@ -9,6 +9,7 @@ public class Example2 {
         int k = 2;
         String b = "А";
         while (i > 0) {
+            // индексация в строках идёт с нуля, а в задании с 1
             char c = a.charAt(i-1);
             b = b + c;
             i = i - k;
