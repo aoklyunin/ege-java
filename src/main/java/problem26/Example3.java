@@ -2,10 +2,7 @@ package problem26;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Example3 {
     // главный метод программы, не забудьте throws FileNotFoundException, иначе программа,
@@ -14,8 +11,8 @@ public class Example3 {
         // открываем файл, относительный путь строится от корня проекта
         // можно вместо этого закинуть файл куда-нибудь на диск и указать полный путь
         Scanner in = new Scanner(new File("src/main/java/problem26/26-57.txt"));
-        // создаём упорядоченное мн-во длин кусков кабеля
-        TreeSet<Integer> set = new TreeSet<>();
+        // создаём список длин кусков кабеля
+        LinkedList<Integer> set = new LinkedList<>();
         // получаем кол-во кусков
         int n = in.nextInt();
         // получаем требуемую длину
@@ -60,6 +57,8 @@ public class Example3 {
                 int nE = sum - m;
                 // добавляем его в множество
                 set.add(nE);
+                // сортируем список
+                Collections.sort(set);
                 // прибавляем к количеству сварок число сварок для этого блока
                 // она на 1 меньшее числа кусков, ведь в сварке всегда участвует два блока
                 sCnt += eCnt - 1;
