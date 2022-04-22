@@ -19,7 +19,7 @@ public class Example4 {
         // масимальная длина тоде равна 0
         int maxCnt = 0;
         // перебираем все индексы
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length() - 2; i++) {
             // если строка с позиции i начинается на EAB
             if (s.startsWith("ABC", i)) {
                 // смещаемся на два дополнительных знака
