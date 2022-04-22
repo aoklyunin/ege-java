@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Example3 {
+public class Example4 {
     // главный метод программы, не забудьте throws FileNotFoundException, иначе программа,
     // работающая с файлом не запустится
     public static void main(String[] args) throws FileNotFoundException {
         // открываем файл, относительный путь строится от корня проекта
         // можно вместо этого закинуть файл куда-нибудь на диск и указать полный путь
-        Scanner in = new Scanner(new File("src/main/java/problem24/24-157.txt"));
+        Scanner in = new Scanner(new File("src/main/java/problem24/k7-9.txt"));
         // читаем строку файла
         String s = in.nextLine();
         // кол-во подряд идущих различных отличных от соседей символов
@@ -20,10 +20,12 @@ public class Example3 {
         int maxCnt = 1;
         // перебираем все индексы, кроме последнего, потому что
         // будем сравнивать пары
+        System.out.println(s);
         for (int i = 0; i < s.length() - 1; i++) {
-            // если нет сочетания стоящих рядом букв `P` и `R`
-            if (!((s.charAt(i) == 'P' && s.charAt(i + 1) == 'R') ||
-                    (s.charAt(i) == 'R' && s.charAt(i + 1) == 'P'))) {
+            // если строка с позиции i начинается на EAB
+            if (s.startsWith("ABC", i)) {
+                // смещаемся на два дополнительных знака
+                i+=2;
                 // увеличиваем количество на 1
                 cnt++;
             } else { // если текущий символ такой же, как и следующий
