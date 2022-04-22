@@ -12,7 +12,7 @@ public class Example3 {
         // можно вместо этого закинуть файл куда-нибудь на диск и указать полный путь
         Scanner in = new Scanner(new File("src/main/java/problem26/26-57.txt"));
         // создаём список длин кусков кабеля
-        LinkedList<Integer> set = new LinkedList<>();
+        LinkedList<Integer> lst = new LinkedList<>();
         // получаем кол-во кусков
         int n = in.nextInt();
         // получаем требуемую длину
@@ -22,7 +22,7 @@ public class Example3 {
             // получаем значение
             int w = in.nextInt();
             // добавляем его в список
-            set.add(w);
+            lst.add(w);
         }
 
         // кол-во сварок
@@ -30,16 +30,16 @@ public class Example3 {
         // кол-во оставшихся кусков
         int rCnt = 0;
         // пока в множестве есть элементы
-        while (!set.isEmpty()) {
+        while (!lst.isEmpty()) {
             // сумма длин для нового блока
             int sum = 0;
             // кол-во использованных блоков
             int eCnt = 0;
             // пока суммарная длина меньше заданной и есть элементы в множестве
-            while (sum < m && !set.isEmpty()) {
+            while (sum < m && !lst.isEmpty()) {
                 // получаем самый большой элемент множества, т.е. берём
                 // кусок кабеля самой большой длины
-                int e = set.pollLast();
+                int e = lst.pollLast();
                 // добавляем его к суммарной длине
                 sum += e;
                 // увеличиваем кол-во взятых кусков на 1
@@ -56,9 +56,9 @@ public class Example3 {
                 // получаем длину остатка
                 int nE = sum - m;
                 // добавляем его в множество
-                set.add(nE);
+                lst.add(nE);
                 // сортируем список
-                Collections.sort(set);
+                Collections.sort(lst);
                 // прибавляем к количеству сварок число сварок для этого блока
                 // она на 1 меньшее числа кусков, ведь в сварке всегда участвует два блока
                 sCnt += eCnt - 1;
