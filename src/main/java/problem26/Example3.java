@@ -25,6 +25,9 @@ public class Example3 {
             lst.add(w);
         }
 
+        // сортируем список
+        Collections.sort(lst);
+
         // кол-во сварок
         int sCnt = 0;
         // кол-во оставшихся кусков

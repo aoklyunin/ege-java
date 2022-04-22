@@ -1178,7 +1178,7 @@ $10^6$ символов X, Y и Z. Определите
 2 50
 ```
 
-**Ответ: 8176 29**
+**Ответ: 9833 167**
 
 [Исходник](https://github.com/aoklyunin/ege-java/blob/master/src/main/java/problem26/Example1.java)
 
