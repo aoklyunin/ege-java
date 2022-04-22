@@ -21,7 +21,7 @@ public class Example3 {
         for (int i = 0; i < n; i++) {
             // получаем значение
             int w = in.nextInt();
-            // добавляем его в множество
+            // добавляем его в список
             set.add(w);
         }
 
