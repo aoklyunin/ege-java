@@ -13,7 +13,6 @@ public class Example1 {
         // открываем файл, относительный путь строится от корня проекта
         // можно вместо этого закинуть файл куда-нибудь на диск и указать полный путь
         Scanner in = new Scanner(new File("src/main/java/problem27/27_B.txt"));
-        //Scanner in = new Scanner(new File("src/main/java/problem27/27_B.txt"));
         int n = in.nextInt();
 
         // массив, хранящий минимальную сумму, имеющую остаток, равный индексу элемента
@@ -29,7 +28,7 @@ public class Example1 {
         int sum = 0;
         // минимальная длина, задаём просто большое число
         int minL = 100000;
-        // мак
+        // максимальная сумма
         int maxSum = 0;
         for (int i = 0; i < n; i++) {
             // читаем число

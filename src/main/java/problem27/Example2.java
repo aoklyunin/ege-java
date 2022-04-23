@@ -12,7 +12,7 @@ public class Example2 {
     public static void main(String[] args) throws FileNotFoundException {
         // открываем файл, относительный путь строится от корня проекта
         // можно вместо этого закинуть файл куда-нибудь на диск и указать полный путь
-        Scanner in = new Scanner(new File("src/main/java/problem27/27-1b.txt"));
+        Scanner in = new Scanner(new File("src/main/java/problem27/27-1a.txt"));
 
         // читаем кол-во чисел
         int n = in.nextInt();

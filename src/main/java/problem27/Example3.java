@@ -16,7 +16,7 @@ public class Example3 {
     static void process(int pos, int[] arr, int[][] d, int fsum) {
         // если массив остатков полностью заполнен
         if (pos == arr.length) {
-            // вычетаем из исходной суммы остатки
+            // вычитаем из исходной суммы остатки
             int subs = fsum;
             for (int j : arr) {
                 subs -= j;
@@ -60,13 +60,12 @@ public class Example3 {
     public static void main(String[] args) throws FileNotFoundException {
         // открываем файл, относительный путь строится от корня проекта
         // можно вместо этого закинуть файл куда-нибудь на диск и указать полный путь
-        Scanner in = new Scanner(new File("src/main/java/problem27/27-2a.txt"));
+        Scanner in = new Scanner(new File("src/main/java/problem27/27-2b.txt"));
 
 
         // читаем кол-во чисел
         int n = in.nextInt();
-        // создаём массив для подсчёта подмножеств, сумма которых имеет тот
-        // или иной остаток от деления на 12
+        // создаём массив для подсчёта остатков
         int[][] d = new int[6][6];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
@@ -98,6 +97,10 @@ public class Example3 {
             System.out.println(sum);
             // завершаем работу программы
             return;
+        }
+
+        for(int[] r:d){
+            System.out.println(Arrays.toString(r));
         }
 
         // запускаем перебор остатков
